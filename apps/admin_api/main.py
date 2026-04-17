@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from apps.admin_api.file.downloads import router as file_downloads_router
+from apps.admin_api.file.uploads import router as file_uploads_router
 from apps.admin_api.observability.audit import router as audit_router
 from apps.admin_api.observability.errors import router as error_router
 from apps.admin_api.observability.monitors import router as monitor_router
@@ -14,6 +16,8 @@ app.include_router(error_router)
 app.include_router(runtime_router)
 app.include_router(monitor_router)
 app.include_router(audit_router)
+app.include_router(file_uploads_router)
+app.include_router(file_downloads_router)
 app.include_router(scheduler_jobs_router)
 app.include_router(scheduler_job_logs_router)
 app.include_router(scheduler_runtime_router)
