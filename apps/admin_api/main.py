@@ -9,6 +9,10 @@ from apps.admin_api.observability.runtime import router as runtime_router
 from apps.admin_api.scheduler.job_logs import router as scheduler_job_logs_router
 from apps.admin_api.scheduler.jobs import router as scheduler_jobs_router
 from apps.admin_api.scheduler.runtime import router as scheduler_runtime_router
+from apps.admin_api.stats.aggregation import router as stats_aggregation_router
+from apps.admin_api.stats.business import router as stats_business_router
+from apps.admin_api.stats.reports import router as stats_reports_router
+from apps.admin_api.stats.traffic import router as stats_traffic_router
 
 app = FastAPI(title="stonecontact admin api")
 
@@ -21,6 +25,10 @@ app.include_router(file_downloads_router)
 app.include_router(scheduler_jobs_router)
 app.include_router(scheduler_job_logs_router)
 app.include_router(scheduler_runtime_router)
+app.include_router(stats_traffic_router)
+app.include_router(stats_business_router)
+app.include_router(stats_aggregation_router)
+app.include_router(stats_reports_router)
 
 
 @app.get("/health")
