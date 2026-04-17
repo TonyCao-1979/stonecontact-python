@@ -1,0 +1,2 @@
+"""Admin observability router package."""
+
