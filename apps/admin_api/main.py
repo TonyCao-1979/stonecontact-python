@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from apps.admin_api.content.help_center import router as content_help_center_router
+from apps.admin_api.content.knowledge import router as content_knowledge_router
 from apps.admin_api.file.downloads import router as file_downloads_router
 from apps.admin_api.file.uploads import router as file_uploads_router
 from apps.admin_api.observability.audit import router as audit_router
@@ -16,6 +18,8 @@ from apps.admin_api.stats.traffic import router as stats_traffic_router
 
 app = FastAPI(title="stonecontact admin api")
 
+app.include_router(content_knowledge_router)
+app.include_router(content_help_center_router)
 app.include_router(error_router)
 app.include_router(runtime_router)
 app.include_router(monitor_router)
